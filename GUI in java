@@ -1,0 +1,93 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.awt.*;
+import java.awt.event.*;
+//import java.awt.event.KeyListener;
+import java.util.Scanner;
+import javax.swing.*;
+
+public class  Swing1 implements ActionListener {
+private Object A,B;
+    protected ActionListener e;
+ void  password(String a,String b){
+    A=a;
+    B=b;
+   }
+   JFrame j=new JFrame("INTIAL"); 
+   JLabel jl=new JLabel("NAME");
+   JTextField jt=new JTextField(20);
+   JLabel jl1=new JLabel("PASSWORD");
+   JTextField jt1=new JTextField(20);
+   JButton b=new JButton("OK");
+   JButton b1=new JButton("cancel");
+ JButton b2=new JButton ("New login");
+   Swing1(){
+   j.setLayout(new FlowLayout());
+   j.add(jl);   j.add(jt);
+   j.add(jl1);   j.add(jt1);
+   j.add(b);   j.add(b1); j.add(b2);
+   b.addActionListener(this);
+   b1.addActionListener(this);
+   b2.addActionListener (this);
+     j.setVisible(true);
+   j.setVisible(true);
+}
+ public  void actionPerformed(ActionEvent ae){
+       if (ae.getSource()==b1){
+           System.exit(0);
+           }
+        else if (ae.getSource()==b){
+             String s= jt1.getText();
+             String s1= jt.getText();
+             if(s.equals(A)){
+                JFrame j=new JFrame("FINAL");
+                 JLabel q=new JLabel(s1);
+                JLabel jl=new JLabel(" !!!....HOW R U babe....!!!");
+                                  j.setLayout(new FlowLayout());
+                  j.add(q);
+                 j.add(jl);
+                
+                 j.setVisible(true); } 
+              else{
+           JFrame j=new JFrame("FINAL"); 
+           JLabel j2=new JLabel("SORRY");
+                 JLabel jl=new JLabel("Wrong Credinals");
+                                  j.setLayout(new FlowLayout());
+                                  j.add(jl);
+                                  j.add(j2);
+                 j.setVisible(true);
+            }
+      
+        }
+       if (ae.getSource()==b2){
+           String s1= jt.getText();
+           String a=jt1.getText();
+           password(a,s1);
+          
+           JFrame j1=new JFrame("FINAL");
+           JLabel jl=new JLabel(" !!!....WELCOME....!!!");
+           JLabel q=new JLabel(s1);
+           JLabel q1=new JLabel("\n!...pasword changed  succesfully...!");
+           j1.setLayout(new FlowLayout());
+           j1.add(jl);
+           j1.add(q);
+           j1.add(q1);
+           j1.setVisible(true);
+           }
+       }
+    
+  public static void main (String args[]){
+    Scanner s=new Scanner(System.in);
+    System.out.println("enter the username:");
+     String b=s.next();
+     System.out.println("enter the OTP:");
+    String a=s.next();
+    Swing1 q = new Swing1();
+    q.password(a,b);
+       }
+  } 
+
+   
